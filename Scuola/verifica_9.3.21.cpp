@@ -49,20 +49,20 @@ int main() {
     srand(time(0));
     int nc, scelta;
     dati conto[100];
-    do{
+    do {
         cout << "Inserire numero conti" << endl;
         cin >> nc;
-        if(nc<0)
-            cout<<"\nScelta numero impossibile"<<endl;
-    }while(nc<0);
+        if (nc < 0)
+            cout << "\nScelta numero impossibile" << endl;
+    } while (nc < 0);
     int cont = 0;
     int sceltaInsert;
-    do{
+    do {
         cout << "\nInserire valore in modo casuale(1) o manuale(2)" << endl;
         cin >> sceltaInsert;
-        if(sceltaInsert!=1 && sceltaInsert!=2)
-            cout<<"\nScelta inesistente"<<endl;
-    }while(sceltaInsert!=1 && sceltaInsert!=2);
+        if (sceltaInsert != 1 && sceltaInsert != 2)
+            cout << "\nScelta inesistente" << endl;
+    } while (sceltaInsert != 1 && sceltaInsert != 2);
     for (int i = 0; i < nc; i++) {
         string cod, nom, cog;
         float s;
@@ -116,7 +116,7 @@ int main() {
         cout << "Opzione 10: Stampa saldi ordinati in ordine decrescente" << endl;
         cout << "Opzione 11: Crea nuovi conti da file" << endl;
         cout << "Opzione 12: Elimina conto, dato codice" << endl;
-        cout<<"Opzione 0: Esci dal programma"<<endl;
+        cout << "Opzione 0: Esci dal programma" << endl;
         cin >> scelta;
         switch (scelta) {
         case 0:
@@ -460,13 +460,13 @@ int main() {
                     pos_min = i;
                 }
             }
-            cout<<"\nConto con saldo maggiore: "<<endl;
-            cout<<"\nConto con saldo minore: "<<endl;
+            cout << "\nConto con saldo maggiore: " << endl;
+            cout << "\nConto con saldo minore: " << endl;
         } break;
         case 9: {
             fstream File;
             File.open("media.txt", ios::out);
-            float med=0;
+            float med = 0;
             for (int i = 0; i < nc; i++) {
                 med += conto[i].get_saldo();
             }
@@ -598,8 +598,7 @@ int main() {
                     File >> cod >> nom >> cog >> sal;
                     conto[nc].input(cod, nom, cog, sal);
                     nc++;
-                    cout<<"nice"<<endl;
-                } while (File.eof());
+                } while (!File.eof());
             }
             if (!check)
                 cout << "\nIl file non esiste" << endl;

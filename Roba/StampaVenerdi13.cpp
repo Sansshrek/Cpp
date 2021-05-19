@@ -41,7 +41,7 @@ int checkLeap(int year)
     return day;
 }
 
-void NuovoCheck(int max, bool check_loop)
+void NuovoCheck(int max)
 {
     count.year = today.year;
     count.month = today.month + 1;
@@ -84,7 +84,6 @@ void NuovoCheck(int max, bool check_loop)
 int main()
 {
     int max;
-    bool check_first_loop;
     time_t t = time(NULL);
     tm* timePtr = localtime(&t);
     today.year = timePtr->tm_year; // years since 1900
@@ -95,5 +94,5 @@ int main()
     today.day_week = timePtr->tm_wday; // day of week
     cout << "Inserire in quanti anni vuoi vedere venerdi 13" << endl;
     cin >> max;
-    NuovoCheck(max, check_first_loop);
+    NuovoCheck(max);
 }
